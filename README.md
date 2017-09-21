@@ -21,20 +21,20 @@ https://developers.google.com/maps/documentation/android-api/events
 РЕШЕНИЕ - прямо указать так называемую локаль
 
 ```java
-            // https://maps.googleapis.com/maps/api/geocode/json?latlng=55.730114813065406,37.6121620461344&key=___PASTE_HERE_YOUR_GOOGLE_API_KEY____
-            final String googleBaseUrl     = "https://maps.googleapis.com/maps/api/geocode";
-            final String googleApiEndpoint = "/json";
-            final String googleApiKey      = "AIzaSyARML1z5NnHkvMjTHczNh4XVN4k_lXdoDA";
+    // https://maps.googleapis.com/maps/api/geocode/json?latlng=55.730114813065406,37.6121620461344&key=___PASTE_HERE_YOUR_GOOGLE_API_KEY____
+    final String googleBaseUrl     = "https://maps.googleapis.com/maps/api/geocode";
+    final String googleApiEndpoint = "/json";
+    final String googleApiKey      = "___ENTER_HERE_YOUR_API_KEY____A";
 
-            // Внимание! Тут не случайно добавлен параметр Locale.US, дабы double числа кодировались с точкой, а не запятой
-            // Иначе гугл будет ругаться
-            // Locale.US
-            final String reagyUrl = String.format( Locale.US, "%s%s?latlng=%f,%f&key=%s",
-                    googleBaseUrl,
-                    googleApiEndpoint,
-                    center.latitude,
-                    center.longitude,
-                    googleApiKey    );
+    // Внимание! Тут не случайно добавлен параметр Locale.US, дабы double числа кодировались с точкой, а не запятой
+    // Иначе гугл будет ругаться
+    // Locale.US
+    final String reagyUrl = String.format( Locale.US, "%s%s?latlng=%f,%f&key=%s",
+                                        googleBaseUrl,
+                    	        	googleApiEndpoint,
+                    			center.latitude,
+                    			center.longitude,
+                    			googleApiKey    );
 
 ```
 
