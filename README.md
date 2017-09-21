@@ -24,7 +24,7 @@ https://developers.google.com/maps/documentation/android-api/events
     // https://maps.googleapis.com/maps/api/geocode/json?latlng=55.730114813065406,37.6121620461344&key=___PASTE_HERE_YOUR_GOOGLE_API_KEY____
     final String googleBaseUrl     = "https://maps.googleapis.com/maps/api/geocode";
     final String googleApiEndpoint = "/json";
-    final String googleApiKey      = "___ENTER_HERE_YOUR_API_KEY____A";
+    final String googleApiKey      = "___ENTER_HERE_YOUR_API_KEY____";
 
     // Внимание! Тут не случайно добавлен параметр Locale.US, дабы double числа кодировались с точкой, а не запятой
     // Иначе гугл будет ругаться
