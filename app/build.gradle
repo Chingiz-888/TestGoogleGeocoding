@@ -1,0 +1,87 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "baydevgroup.net.testgooglegeocoding"
+        minSdkVersion 17
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+repositories {
+    maven { url "https://jitpack.io" }
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+
+
+
+    // RETROFIT 2 с сопутствующими модулями ------
+    compile('com.squareup.retrofit2:retrofit:2.1.0') {
+        exclude module: 'okhttp'
+    }
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+
+
+
+
+    //--- Для отладки --------------------------------------
+    // включаем поддержку Timber - это удобная замена простого Log.d метода для логирования
+    // https://github.com/JakeWharton/timber
+    compile 'com.jakewharton.timber:timber:4.5.1'
+
+
+
+    //--- Для включения Google Maps ------------------------
+    // Документация: https://developers.google.com/android/guides/setup
+    //  Table 1. Individual APIs and corresponding build.gradle description
+    //   общая установка       -  'com.google.android.gms:play-services:11.4.0'
+    //   установка только maps -  'com.google.android.gms:play-services-maps:11.4.0'
+    compile 'com.google.android.gms:play-services-maps:11.4.0'
+    compile 'com.google.android.gms:play-services-location:11.4.0'
+
+
+    // Используем Deferred Objects
+    // Репозиторий: https://github.com/jdeferred/jdeferred
+    compile 'org.jdeferred:jdeferred-android-aar:1.2.4'
+
+
+    // Включаем через файл jar библиотеку Apache Commons 3
+    compile files('src/commons-lang3-3.6.jar')
+
+
+}
